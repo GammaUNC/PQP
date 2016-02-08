@@ -420,7 +420,7 @@ void LoadPath(PQP_REAL (* &R)[3][3], PQP_REAL (* &T)[3], char *filename)
   fclose(fp);
 }
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   // init glut
 
