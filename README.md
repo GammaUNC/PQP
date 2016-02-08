@@ -4,15 +4,12 @@
 ###### UNC - Chapel Hill Computer Science
 ###### geom (at) cs (dot) unc (dot) edu
 
-======
-Changes:
-
 |Version|Changes|
 |-------|:------|
-|1.0    | First release of library 
-|1.1    | Fixed a bug in calculating query times on Win32 machines. Added a demo 'falling' which can demonstrate all of the proximity query types. 
-|1.2    | Altered the triangle distance routine due to a degeneracy problem when edges of two triangles nearly intersect.
 |1.3    | now use isnan() to test for NaN, instead of a comparison that was sometimes optimized away.
+|1.2    | Altered the triangle distance routine due to a degeneracy problem when edges of two triangles nearly intersect.
+|1.1    | Fixed a bug in calculating query times on Win32 machines. Added a demo 'falling' which can demonstrate all of the proximity query types. 
+|1.0    | First release of library 
 
 ## Introduction
 
