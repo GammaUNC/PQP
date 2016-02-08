@@ -1,15 +1,15 @@
 CC = g++
 
-CFLAGS		= -O2 -I.
+CFLAGS	= -O2 -I.
 
 .SUFFIXES: .C .cpp
 
-OBJECTS		= lib/PQP.o \
-		  lib/BV.o \
-		  lib/Build.o \
-		  lib/TriDist.o
+OBJECTS	= lib/PQP.o \
+          lib/BV.o \
+          lib/Build.o \
+          lib/TriDist.o
 
-CLEAN		= $(OBJECTS) lib/libPQP.a include/*.h
+CLEAN	= $(OBJECTS) lib/libPQP.a include/*.h
 
 library: $(OBJECTS)
 	/bin/rm -f lib/libPQP.a
