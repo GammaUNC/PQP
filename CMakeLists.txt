@@ -53,16 +53,16 @@ install(
 	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT runtime
 )
 
-option(BUILD_SAMPLE "build sample" OFF)
+option(BUILD_SAMPLES "Build samples" OFF)
 
-if(BUILD_SAMPLE)
+if(BUILD_SAMPLES)
 	add_executable(sample demos/sample/main.cpp)
 	target_link_libraries(sample PQP)
-
+	
 	find_package(GLUT)
 	find_package(OpenGL)
 	find_package(X11)
-
+	
 	if(GLUT_FOUND AND OPENGL_FOUND AND X11_FOUND)
 		configure_file(demos/spinning/bunny.tris bunny.tris COPYONLY)
 		configure_file(demos/spinning/torus.tris torus.tris COPYONLY)
@@ -81,8 +81,8 @@ if(BUILD_SAMPLE)
 endif()
 
 configure_package_config_file(
-  pqp-config.cmake.in pqp-config.cmake
-  INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/PQP-${VERSION}
+	pqp-config.cmake.in pqp-config.cmake
+	INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/PQP-${VERSION}
 )
 
 install(
