@@ -53,27 +53,31 @@ install(
 	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT runtime
 )
 
-add_executable(sample demos/sample/main.cpp)
-target_link_libraries(sample PQP)
+option(BUILD_SAMPLE "build sample" OFF)
 
-find_package(GLUT)
-find_package(OpenGL)
-find_package(X11)
+if(BUILD_SAMPLE)
+	add_executable(sample demos/sample/main.cpp)
+	target_link_libraries(sample PQP)
 
-if(GLUT_FOUND AND OPENGL_FOUND AND X11_FOUND)
-	configure_file(demos/spinning/bunny.tris bunny.tris COPYONLY)
-	configure_file(demos/spinning/torus.tris torus.tris COPYONLY)
-	add_executable(spinning demos/spinning/main.cpp demos/spinning/model.cpp)
-	target_include_directories(spinning PRIVATE ${GLUT_INCLUDE_DIR} ${X11_INCLUDE_DIR})
-	target_link_libraries(spinning PQP ${GLUT_LIBRARIES} ${OPENGL_LIBRARIES} ${X11_LIBRARIES})
-	
-	configure_file(demos/falling/torus1.path torus1.path COPYONLY)
-	configure_file(demos/falling/torus1.tris torus1.tris COPYONLY)
-	configure_file(demos/falling/torus2.path torus2.path COPYONLY)
-	configure_file(demos/falling/torus2.tris torus2.tris COPYONLY)
-	add_executable(falling demos/falling/main.cpp demos/falling/model.cpp)
-	target_include_directories(falling PRIVATE ${GLUT_INCLUDE_DIR} ${X11_INCLUDE_DIR})
-	target_link_libraries(falling PQP ${GLUT_LIBRARIES} ${OPENGL_LIBRARIES} ${X11_LIBRARIES})
+	find_package(GLUT)
+	find_package(OpenGL)
+	find_package(X11)
+
+	if(GLUT_FOUND AND OPENGL_FOUND AND X11_FOUND)
+		configure_file(demos/spinning/bunny.tris bunny.tris COPYONLY)
+		configure_file(demos/spinning/torus.tris torus.tris COPYONLY)
+		add_executable(spinning demos/spinning/main.cpp demos/spinning/model.cpp)
+		target_include_directories(spinning PRIVATE ${GLUT_INCLUDE_DIR} ${X11_INCLUDE_DIR})
+		target_link_libraries(spinning PQP ${GLUT_LIBRARIES} ${OPENGL_LIBRARIES} ${X11_LIBRARIES})
+		
+		configure_file(demos/falling/torus1.path torus1.path COPYONLY)
+		configure_file(demos/falling/torus1.tris torus1.tris COPYONLY)
+		configure_file(demos/falling/torus2.path torus2.path COPYONLY)
+		configure_file(demos/falling/torus2.tris torus2.tris COPYONLY)
+		add_executable(falling demos/falling/main.cpp demos/falling/model.cpp)
+		target_include_directories(falling PRIVATE ${GLUT_INCLUDE_DIR} ${X11_INCLUDE_DIR})
+		target_link_libraries(falling PQP ${GLUT_LIBRARIES} ${OPENGL_LIBRARIES} ${X11_LIBRARIES})
+	endif()
 endif()
 
 configure_package_config_file(
