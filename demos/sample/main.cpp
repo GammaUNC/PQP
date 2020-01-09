@@ -45,7 +45,7 @@
 #define PI 3.14159265359
 #define LISTS 0
 
-main()
+int main()
 {
   // initialize PQP model pointers
 
