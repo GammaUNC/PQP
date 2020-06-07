@@ -43,6 +43,7 @@
 
 #include "PQP_Compile.h"   
 #include "PQP_Internal.h"                             
+#include "PQP_Export.h"
                         
 //----------------------------------------------------------------------------
 //
@@ -203,7 +204,7 @@ const int PQP_ERR_BUILD_EMPTY_MODEL = -5;
 const int PQP_ALL_CONTACTS = 1;  // find all pairwise intersecting triangles
 const int PQP_FIRST_CONTACT = 2; // report first intersecting tri pair found
 
-int 
+PQP_EXPORT int 
 PQP_Collide(PQP_CollideResult *result,
             PQP_REAL R1[3][3], PQP_REAL T1[3], PQP_Model *o1,
             PQP_REAL R2[3][3], PQP_REAL T2[3], PQP_Model *o2,
@@ -264,7 +265,7 @@ PQP_Collide(PQP_CollideResult *result,
 //
 //----------------------------------------------------------------------------
 
-int 
+PQP_EXPORT int 
 PQP_Distance(PQP_DistanceResult *result, 
              PQP_REAL R1[3][3], PQP_REAL T1[3], PQP_Model *o1,
              PQP_REAL R2[3][3], PQP_REAL T2[3], PQP_Model *o2,
@@ -321,7 +322,7 @@ PQP_Distance(PQP_DistanceResult *result,
 //
 //----------------------------------------------------------------------------
 
-int
+PQP_EXPORT int
 PQP_Tolerance(PQP_ToleranceResult *res, 
               PQP_REAL R1[3][3], PQP_REAL T1[3], PQP_Model *o1,
               PQP_REAL R2[3][3], PQP_REAL T2[3], PQP_Model *o2,

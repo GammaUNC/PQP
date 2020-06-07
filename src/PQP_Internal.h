@@ -40,8 +40,9 @@
 
 #include "Tri.h"
 #include "BV.h"
+#include "PQP_Export.h"
 
-class PQP_Model
+class PQP_EXPORT PQP_Model
 {
 
 public:
@@ -79,7 +80,7 @@ struct CollisionPair
   int id2;
 };
 
-struct PQP_CollideResult  
+struct PQP_EXPORT PQP_CollideResult  
 {
   // stats
 
@@ -123,7 +124,7 @@ struct PQP_CollideResult
 
 #if PQP_BV_TYPE & RSS_TYPE // distance/tolerance are only available with RSS
 
-struct PQP_DistanceResult 
+struct PQP_EXPORT PQP_DistanceResult 
 {
   // stats
 
@@ -160,7 +161,7 @@ struct PQP_DistanceResult
   const PQP_REAL *P2() { return p2; }
 };
 
-struct PQP_ToleranceResult 
+struct PQP_EXPORT PQP_ToleranceResult 
 {
   // stats
 
